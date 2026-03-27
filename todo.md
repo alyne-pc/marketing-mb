@@ -1,37 +1,39 @@
 # Mission Brasil - Project TODO
 
 ## Core Features
-- [ ] Restore Home page with hero section and policy distribution visible
+- [x] Restore Home page with hero section and policy distribution visible
 - [ ] Restore Request form (multi-step) with proper styling
 - [ ] Restore Confirmation page
 - [ ] Restore Dashboard page structure
 
 ## Database Schema
-- [ ] Create requests table (user submissions)
-- [ ] Create stock table (inventory by size)
-- [ ] Create approvals table (manager decisions)
-- [ ] Create deliveries table (marketing tracking)
-- [ ] Create users table with roles (admin/manager/user)
+- [x] Create requests table (user submissions)
+- [x] Create inventory table (inventory by size)
+- [x] Create area stats table
+- [x] Create users table with roles (admin/manager/user)
+- [x] Database migrations applied
 
 ## Authentication & Authorization
-- [ ] Implement manager login (OAuth)
-- [ ] Implement admin role for owner
-- [ ] Protect manager dashboard routes
+- [x] OAuth setup (inherited from template)
+- [ ] Implement manager role assignment
+- [ ] Protect manager dashboard routes with role check
 - [ ] Implement logout functionality
 
 ## Regulations & Policies
+- [x] Display distribution policy prominently on home page
 - [ ] Create Regulations modal/dialog component
 - [ ] Add regulations content
 - [ ] Add regulations acceptance checkbox to form
-- [ ] Display distribution policy prominently on home page
 
 ## Request Form Features
+- [ ] Create tRPC router for requests
 - [ ] Form submission saves to database
 - [ ] Form validation
 - [ ] Email notification to manager on new request
 - [ ] Email notification to user on submission
 
 ## Manager Dashboard
+- [ ] Create tRPC procedures for dashboard queries
 - [ ] Display inventory (quantity by size)
 - [ ] Display inventory by area
 - [ ] Display total spent by area
@@ -39,13 +41,14 @@
 - [ ] Approve/Reject requests functionality
 - [ ] Send approval/rejection emails to users
 - [ ] Send approved request details to marketing
+- [ ] Build manager dashboard UI
 
 ## Request Status Flow
-- [ ] Status: Aguardando (waiting for manager approval)
-- [ ] Status: Aprovada (approved, waiting for delivery)
-- [ ] Status: Aguardando Entrega (waiting for marketing to deliver)
-- [ ] Status: Entregue (delivered)
-- [ ] Update stock when approved
+- [x] Status: Aguardando (waiting for manager approval)
+- [x] Status: Aprovada (approved, waiting for delivery)
+- [x] Status: Aguardando Entrega (waiting for marketing to deliver)
+- [x] Status: Entregue (delivered)
+- [ ] Update stock when approved (via approveRequest function)
 - [ ] Update stock when delivered
 
 ## Email Integrations
