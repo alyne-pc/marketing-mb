@@ -49,10 +49,15 @@ export const requests = mysqlTable("requests", {
   userId: int("userId").notNull(),
   fullName: varchar("fullName", { length: 255 }).notNull(),
   email: varchar("email", { length: 320 }).notNull(),
+  telefone: varchar("telefone", { length: 20 }),
   matricula: varchar("matricula", { length: 50 }).notNull(),
   area: varchar("area", { length: 255 }).notNull(),
+  gestor: varchar("gestor", { length: 255 }), // Manager name
   size: mysqlEnum("size", ["P", "M", "G", "GG"]).notNull(),
   model: mysqlEnum("model", ["tradicional", "baby-look"]).notNull(),
+  isFirstRequest: int("isFirstRequest").default(1).notNull(), // 1 = true, 0 = false
+  lastRequestDate: timestamp("lastRequestDate"), // Date of last request if not first
+  motivo: text("motivo"), // Reason for request
   status: mysqlEnum("status", ["aguardando", "aprovada", "aguardando_entrega", "entregue", "rejeitada"]).default("aguardando").notNull(),
   approvedBy: int("approvedBy"), // Manager ID who approved
   approvedAt: timestamp("approvedAt"),
@@ -80,3 +85,19 @@ export const areaStats = mysqlTable("areaStats", {
 
 export type AreaStats = typeof areaStats.$inferSelect;
 export type InsertAreaStats = typeof areaStats.$inferInsert;
+
+/**
+ * Managers table - tracks managers by area
+ */
+export const managers = mysqlTable("managers", {
+  id: int("id").autoincrement().primaryKey(),
+  name: varchar("name", { length: 255 }).notNull(),
+  email: varchar("email", { length: 320 }).notNull().unique(),
+  area: varchar("area", { length: 255 }).notNull(),
+  userId: int("userId"), // Reference to users table for OAuth integration
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type Manager = typeof managers.$inferSelect;
+export type InsertManager = typeof managers.$inferInsert;

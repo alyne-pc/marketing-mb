@@ -1,0 +1,9 @@
+{
+  "query": "INSERT INTO managers (name, email, area) VALUES \n('Alyne Carvalho', 'alyne.carvalho@missionbrasil.com.br', 'Marketing'),\n('Thales Zanussi', 'thales.ribeiro@missionbrasil.com.br', 'Administração'),\n('Patricia Finotti', 'patricia.finotti@missionbrasil.com.br', 'Operações'),\n('Willian Sousa', 'willian.sousa@missionbrasil.com.br', 'Produto'),\n('Eduardo Parucker', 'eduardo.parucker@missionbrasil.com.br', 'Tecnologia');",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway05.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3aoCVhagtYMLHYp.root --database e966wTVkFHQahvcUVqirsL --execute INSERT INTO managers (name, email, area) VALUES \n('Alyne Carvalho', 'alyne.carvalho@missionbrasil.com.br', 'Marketing'),\n('Thales Zanussi', 'thales.ribeiro@missionbrasil.com.br', 'Administração'),\n('Patricia Finotti', 'patricia.finotti@missionbrasil.com.br', 'Operações'),\n('Willian Sousa', 'willian.sousa@missionbrasil.com.br', 'Produto'),\n('Eduardo Parucker', 'eduardo.parucker@missionbrasil.com.br', 'Tecnologia');",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 198
+}

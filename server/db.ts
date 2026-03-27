@@ -1,6 +1,6 @@
 import { eq, desc } from "drizzle-orm";
 import { drizzle } from "drizzle-orm/mysql2";
-import { InsertUser, users, requests, inventory, areaStats, InsertRequest } from "../drizzle/schema";
+import { InsertUser, users, requests, inventory, areaStats, InsertRequest, managers, InsertManager } from "../drizzle/schema";
 import { ENV } from './_core/env';
 
 let _db: ReturnType<typeof drizzle> | null = null;
@@ -300,4 +300,103 @@ export async function getOrCreateAreaStats(area: string) {
     .limit(1);
   
   return created[0];
+}
+
+/**
+ * Get all managers
+ */
+export async function getAllManagers() {
+  const db = await getDb();
+  if (!db) {
+    return [];
+  }
+  
+  return await db.select().from(managers).orderBy(managers.area);
+}
+
+/**
+ * Get manager by area
+ */
+export async function getManagerByArea(area: string) {
+  const db = await getDb();
+  if (!db) {
+    return undefined;
+  }
+  
+  const result = await db
+    .select()
+    .from(managers)
+    .where(eq(managers.area, area))
+    .limit(1);
+  
+  return result.length > 0 ? result[0] : undefined;
+}
+
+/**
+ * Create or update manager
+ */
+export async function upsertManager(data: InsertManager) {
+  const db = await getDb();
+  if (!db) {
+    throw new Error("Database not available");
+  }
+  
+  const existing = await db
+    .select()
+    .from(managers)
+    .where(eq(managers.email, data.email))
+    .limit(1);
+  
+  if (existing.length > 0) {
+    await db
+      .update(managers)
+      .set(data)
+      .where(eq(managers.email, data.email));
+  } else {
+    await db.insert(managers).values(data);
+  }
+}
+
+/**
+ * Update inventory
+ */
+export async function updateInventory(size: string, quantity: number) {
+  const db = await getDb();
+  if (!db) {
+    throw new Error("Database not available");
+  }
+  
+  const existing = await db
+    .select()
+    .from(inventory)
+    .where(eq(inventory.size, size as any))
+    .limit(1);
+  
+  if (existing.length > 0) {
+    await db
+      .update(inventory)
+      .set({ quantity })
+      .where(eq(inventory.size, size as any));
+  } else {
+    await db.insert(inventory).values({
+      size: size as any,
+      quantity,
+      costPerUnit: "0",
+    });
+  }
+}
+
+/**
+ * Update inventory cost per unit
+ */
+export async function updateInventoryCost(size: string, costPerUnit: string) {
+  const db = await getDb();
+  if (!db) {
+    throw new Error("Database not available");
+  }
+  
+  await db
+    .update(inventory)
+    .set({ costPerUnit })
+    .where(eq(inventory.size, size as any));
 }

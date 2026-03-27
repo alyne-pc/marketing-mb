@@ -15,6 +15,13 @@
       "when": 1774637249165,
       "tag": "0001_productive_captain_stacy",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1774638047838,
+      "tag": "0002_productive_eternity",
+      "breakpoints": true
     }
   ]
 }

@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -14,15 +14,30 @@ import { Label } from "@/components/ui/label";
  * Displays inventory, requests, and area statistics
  */
 export default function Dashboard() {
-  const { user, isAuthenticated } = useAuth();
+  const { user, isAuthenticated, loading } = useAuth();
   const [, setLocation] = useLocation();
   const [showRejectDialog, setShowRejectDialog] = useState(false);
   const [selectedRequestId, setSelectedRequestId] = useState<number | null>(null);
   const [rejectionReason, setRejectionReason] = useState("");
 
   // Redirect if not authenticated or not a manager
+  useEffect(() => {
+    if (!loading && !isAuthenticated) {
+      setLocation("/");
+    }
+  }, [isAuthenticated, loading, setLocation]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        <div className="text-center">
+          <p className="text-[#c3c6cf]">Carregando...</p>
+        </div>
+      </div>
+    );
+  }
+
   if (!isAuthenticated) {
-    setLocation("/");
     return null;
   }
 
@@ -46,12 +61,14 @@ export default function Dashboard() {
   const { data: areaStats, isLoading: loadingStats } = trpc.dashboard.getAreaStats.useQuery();
 
   // Mutations
+  const utils = trpc.useUtils();
+
   const approveMutation = trpc.requests.approve.useMutation({
     onSuccess: () => {
       toast.success("Solicitação aprovada!");
       // Refetch data
-      trpc.useUtils().requests.getPending.invalidate();
-      trpc.useUtils().dashboard.getAreaStats.invalidate();
+      utils.requests.getPending.invalidate();
+      utils.dashboard.getAreaStats.invalidate();
     },
     onError: (error) => {
       toast.error(`Erro ao aprovar: ${error.message}`);
@@ -64,7 +81,7 @@ export default function Dashboard() {
       setShowRejectDialog(false);
       setRejectionReason("");
       setSelectedRequestId(null);
-      trpc.useUtils().requests.getPending.invalidate();
+      utils.requests.getPending.invalidate();
     },
     onError: (error) => {
       toast.error(`Erro ao rejeitar: ${error.message}`);

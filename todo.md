@@ -2,9 +2,9 @@
 
 ## Core Features
 - [x] Restore Home page with hero section and policy distribution visible
-- [ ] Restore Request form (multi-step) with proper styling
-- [ ] Restore Confirmation page
-- [ ] Restore Dashboard page structure
+- [x] Restore Request form (multi-step) with proper styling
+- [x] Restore Confirmation page
+- [x] Restore Dashboard page structure
 
 ## Database Schema
 - [x] Create requests table (user submissions)
@@ -34,14 +34,14 @@
 
 ## Manager Dashboard
 - [x] Create tRPC procedures for dashboard queries
-- [ ] Display inventory (quantity by size)
-- [ ] Display inventory by area
-- [ ] Display total spent by area
-- [ ] Display all requests with status
-- [ ] Approve/Reject requests functionality
+- [x] Display inventory (quantity by size)
+- [x] Display inventory by area
+- [x] Display total spent by area
+- [x] Display all requests with status
+- [x] Approve/Reject requests functionality
 - [ ] Send approval/rejection emails to users
 - [ ] Send approved request details to marketing
-- [ ] Build manager dashboard UI
+- [x] Build manager dashboard UI
 
 ## Request Status Flow
 - [x] Status: Aguardando (waiting for manager approval)
@@ -73,3 +73,27 @@
 - [ ] Test email notifications
 - [ ] Test stock updates
 - [ ] Test authentication
+
+
+## Admin Page & Permissions
+- [ ] Create managers table in database
+- [ ] Create admin page with master-only access
+- [ ] Implement manager CRUD (create, read, update, delete)
+- [ ] Implement stock management UI in admin page
+- [ ] Seed initial managers data
+- [ ] Restrict admin page to owner/master only
+
+## Updated Request Form
+- [ ] Add telefone field
+- [ ] Add area dropdown (populated from managers)
+- [ ] Add gestor field (auto-filled based on area)
+- [ ] Add checkbox "É sua primeira solicitação?"
+- [ ] Add conditional date field for last request date
+- [ ] Add motivo da solicitação field
+- [ ] Update database schema for new fields
+- [ ] Create new tRPC procedure for updated request creation
+
+## Email Notifications
+- [ ] Send email to manager on new request
+- [ ] Send email to user on approval/rejection
+- [ ] Send email to marketing on approval

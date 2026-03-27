@@ -1,0 +1,9 @@
+{
+  "query": "CREATE TABLE `managers` (\n\t`id` int AUTO_INCREMENT NOT NULL,\n\t`name` varchar(255) NOT NULL,\n\t`email` varchar(320) NOT NULL,\n\t`area` varchar(255) NOT NULL,\n\t`userId` int,\n\t`createdAt` timestamp NOT NULL DEFAULT (now()),\n\t`updatedAt` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,\n\tCONSTRAINT `managers_id` PRIMARY KEY(`id`),\n\tCONSTRAINT `managers_email_unique` UNIQUE(`email`)\n);\nALTER TABLE `requests` ADD `telefone` varchar(20);\nALTER TABLE `requests` ADD `gestor` varchar(255);\nALTER TABLE `requests` ADD `isFirstRequest` int DEFAULT 1 NOT NULL;\nALTER TABLE `requests` ADD `lastRequestDate` timestamp;\nALTER TABLE `requests` ADD `motivo` text;",
+  "command": "mysql --batch --raw --column-names --default-character-set=utf8mb4 --host gateway05.us-east-1.prod.aws.tidbcloud.com --port 4000 --user 3aoCVhagtYMLHYp.root --database e966wTVkFHQahvcUVqirsL --execute CREATE TABLE `managers` (\n\t`id` int AUTO_INCREMENT NOT NULL,\n\t`name` varchar(255) NOT NULL,\n\t`email` varchar(320) NOT NULL,\n\t`area` varchar(255) NOT NULL,\n\t`userId` int,\n\t`createdAt` timestamp NOT NULL DEFAULT (now()),\n\t`updatedAt` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,\n\tCONSTRAINT `managers_id` PRIMARY KEY(`id`),\n\tCONSTRAINT `managers_email_unique` UNIQUE(`email`)\n);\nALTER TABLE `requests` ADD `telefone` varchar(20);\nALTER TABLE `requests` ADD `gestor` varchar(255);\nALTER TABLE `requests` ADD `isFirstRequest` int DEFAULT 1 NOT NULL;\nALTER TABLE `requests` ADD `lastRequestDate` timestamp;\nALTER TABLE `requests` ADD `motivo` text;",
+  "rows": [],
+  "messages": [],
+  "stdout": "",
+  "stderr": "",
+  "execution_time_ms": 1131
+}
