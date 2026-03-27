@@ -9,8 +9,8 @@ import Request from "./pages/Request";
 import Confirmation from "./pages/Confirmation";
 import Dashboard from "./pages/Dashboard";
 
-
 function Router() {
+  // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
       <Route path={"/"} component={Home} />
