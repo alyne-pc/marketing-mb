@@ -76,22 +76,22 @@
 
 
 ## Admin Page & Permissions
-- [ ] Create managers table in database
-- [ ] Create admin page with master-only access
-- [ ] Implement manager CRUD (create, read, update, delete)
-- [ ] Implement stock management UI in admin page
-- [ ] Seed initial managers data
-- [ ] Restrict admin page to owner/master only
+- [x] Create managers table in database
+- [x] Create admin page with master-only access
+- [x] Implement manager CRUD (create, read, update, delete)
+- [x] Implement stock management UI in admin page
+- [x] Seed initial managers data
+- [x] Restrict admin page to owner/master only
 
 ## Updated Request Form
-- [ ] Add telefone field
-- [ ] Add area dropdown (populated from managers)
-- [ ] Add gestor field (auto-filled based on area)
-- [ ] Add checkbox "É sua primeira solicitação?"
-- [ ] Add conditional date field for last request date
-- [ ] Add motivo da solicitação field
-- [ ] Update database schema for new fields
-- [ ] Create new tRPC procedure for updated request creation
+- [x] Add telefone field
+- [x] Add area dropdown (populated from managers)
+- [x] Add gestor field (auto-filled based on area)
+- [x] Add checkbox "É sua primeira solicitação?"
+- [x] Add conditional date field for last request date
+- [x] Add motivo da solicitação field
+- [x] Update database schema for new fields
+- [x] Create new tRPC procedure for updated request creation
 
 ## Email Notifications
 - [ ] Send email to manager on new request

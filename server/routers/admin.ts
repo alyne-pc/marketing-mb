@@ -7,18 +7,12 @@ import { TRPCError } from "@trpc/server";
  * Admin router - restricted to admin/owner only
  */
 export const adminRouter = router({
-  // Get all managers
-  getManagers: protectedProcedure.query(async ({ ctx }) => {
-    if (ctx.user?.role !== "admin") {
-      throw new TRPCError({
-        code: "FORBIDDEN",
-        message: "Only admins can access this",
-      });
-    }
+  // Get all managers (public for form population)
+  getManagers: protectedProcedure.query(async () => {
     return await getAllManagers();
   }),
 
-  // Create or update manager
+  // Create or update manager (admin only)
   upsertManager: protectedProcedure
     .input(
       z.object({
@@ -38,7 +32,7 @@ export const adminRouter = router({
       return { success: true };
     }),
 
-  // Get inventory
+  // Get inventory (admin only)
   getInventory: protectedProcedure.query(async ({ ctx }) => {
     if (ctx.user?.role !== "admin") {
       throw new TRPCError({
@@ -49,7 +43,7 @@ export const adminRouter = router({
     return await getInventory();
   }),
 
-  // Update inventory quantity
+  // Update inventory quantity (admin only)
   updateInventoryQuantity: protectedProcedure
     .input(
       z.object({
@@ -68,7 +62,7 @@ export const adminRouter = router({
       return { success: true };
     }),
 
-  // Update inventory cost per unit
+  // Update inventory cost per unit (admin only)
   updateInventoryCost: protectedProcedure
     .input(
       z.object({

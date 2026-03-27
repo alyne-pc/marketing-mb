@@ -19,10 +19,15 @@ export const requestsRouter = router({
       z.object({
         fullName: z.string().min(1),
         email: z.string().email(),
+        telefone: z.string().min(1),
         matricula: z.string().min(1),
         area: z.string().min(1),
+        gestor: z.string().optional(),
         size: z.enum(["P", "M", "G", "GG"]),
         model: z.enum(["tradicional", "baby-look"]),
+        isFirstRequest: z.number().optional(),
+        lastRequestDate: z.date().optional(),
+        motivo: z.string().optional(),
       })
     )
     .mutation(async ({ input, ctx }) => {
@@ -33,10 +38,15 @@ export const requestsRouter = router({
         userId: ctx.user.id,
         fullName: input.fullName,
         email: input.email,
+        telefone: input.telefone,
         matricula: input.matricula,
         area: input.area,
+        gestor: input.gestor,
         size: input.size,
         model: input.model,
+        isFirstRequest: input.isFirstRequest ?? 1,
+        lastRequestDate: input.lastRequestDate,
+        motivo: input.motivo,
         status: "aguardando",
       });
 

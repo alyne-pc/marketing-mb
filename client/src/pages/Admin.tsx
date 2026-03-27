@@ -306,13 +306,13 @@ function ManagersSection() {
         <div className="space-y-4">
           {managers.map((manager) => (
             <div
-              key={manager.id}
+              key={(manager as any).id}
               className="bg-[#0f0f1f] border border-[#42474e]/20 rounded p-4 flex justify-between items-center"
             >
               <div>
-                <p className="text-white font-bold">{manager.name}</p>
-                <p className="text-[#c3c6cf] text-sm">{manager.email}</p>
-                <p className="text-[#5fd4ff] text-sm">{manager.area}</p>
+                <p className="text-white font-bold">{(manager as any).name}</p>
+                <p className="text-[#c3c6cf] text-sm">{(manager as any).email}</p>
+                <p className="text-[#5fd4ff] text-sm">{(manager as any).area}</p>
               </div>
             </div>
           ))}
