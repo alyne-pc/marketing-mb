@@ -9,6 +9,7 @@ import {
   markAsDelivered,
   getOrCreateAreaStats,
 } from "../db";
+import { notifyManagerNewRequest, notifyMarketingApproved } from "../email";
 
 export const requestsRouter = router({
   /**
@@ -34,7 +35,7 @@ export const requestsRouter = router({
       // Ensure area stats exist
       await getOrCreateAreaStats(input.area);
 
-      await createRequest({
+      const result = await createRequest({
         userId: ctx.user.id,
         fullName: input.fullName,
         email: input.email,
@@ -49,6 +50,17 @@ export const requestsRouter = router({
         motivo: input.motivo,
         status: "aguardando",
       });
+
+      // Send notification to manager
+      if (result && typeof result === 'object' && 'id' in result) {
+        await notifyManagerNewRequest(
+          (result as any).id,
+          input.fullName,
+          input.area,
+          input.size,
+          input.gestor || "Não informado"
+        );
+      }
 
       return {
         success: true,
