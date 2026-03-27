@@ -140,15 +140,12 @@ export default function Confirmation() {
             © Mission Brasil - The Celestial Navigator
           </div>
           <div className="flex gap-8">
-            <a href="#" className="text-xs tracking-widest uppercase text-[#c3c6cf] hover:text-[#5fd4ff] hover:translate-y-[-2px] transition-all duration-300">
+            <button
+              onClick={() => setLocation("/")}
+              className="text-xs tracking-widest uppercase text-[#c3c6cf] hover:text-[#5fd4ff] hover:translate-y-[-2px] transition-all duration-300"
+            >
               Regulamento
-            </a>
-            <a href="#" className="text-xs tracking-widest uppercase text-[#c3c6cf] hover:text-[#5fd4ff] hover:translate-y-[-2px] transition-all duration-300">
-              Privacidade
-            </a>
-            <a href="#" className="text-xs tracking-widest uppercase text-[#c3c6cf] hover:text-[#5fd4ff] hover:translate-y-[-2px] transition-all duration-300">
-              Suporte
-            </a>
+            </button>
           </div>
         </div>
       </footer>

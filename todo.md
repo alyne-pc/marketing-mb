@@ -21,19 +21,19 @@
 
 ## Regulations & Policies
 - [x] Display distribution policy prominently on home page
-- [ ] Create Regulations modal/dialog component
-- [ ] Add regulations content
-- [ ] Add regulations acceptance checkbox to form
+- [x] Create Regulations modal/dialog component
+- [x] Add regulations content
+- [x] Add regulations acceptance checkbox to form
 
 ## Request Form Features
-- [ ] Create tRPC router for requests
-- [ ] Form submission saves to database
-- [ ] Form validation
+- [x] Create tRPC router for requests
+- [x] Form submission saves to database
+- [x] Form validation
 - [ ] Email notification to manager on new request
 - [ ] Email notification to user on submission
 
 ## Manager Dashboard
-- [ ] Create tRPC procedures for dashboard queries
+- [x] Create tRPC procedures for dashboard queries
 - [ ] Display inventory (quantity by size)
 - [ ] Display inventory by area
 - [ ] Display total spent by area
