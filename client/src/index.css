@@ -43,74 +43,78 @@
 }
 
 :root {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-600);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --radius: 0.65rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.235 0.015 65);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.235 0.015 65);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.235 0.015 65);
-  --secondary: oklch(0.98 0.001 286.375);
-  --secondary-foreground: oklch(0.4 0.015 65);
-  --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: oklch(0.967 0.001 286.375);
-  --accent-foreground: oklch(0.141 0.005 285.823);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.92 0.004 286.32);
-  --input: oklch(0.92 0.004 286.32);
-  --ring: oklch(0.623 0.214 259.815);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.235 0.015 65);
-  --sidebar-accent: oklch(0.967 0.001 286.375);
-  --sidebar-accent-foreground: oklch(0.141 0.005 285.823);
-  --sidebar-border: oklch(0.92 0.004 286.32);
-  --sidebar-ring: oklch(0.623 0.214 259.815);
+  /* Mission Brasil - Celestial Navigator Theme */
+  /* Dark space background with cyan/blue accents */
+  
+  --primary: #a5c9f8;
+  --primary-foreground: #003259;
+  --sidebar-primary: #5fd4ff;
+  --sidebar-primary-foreground: #001d36;
+  --chart-1: #5fd4ff;
+  --chart-2: #8fcdff;
+  --chart-3: #a5c9f8;
+  --chart-4: #3bb4ff;
+  --chart-5: #14a1eb;
+  
+  --radius: 0.25rem;
+  --background: #111127;
+  --foreground: #e2dfff;
+  --card: #1d1d34;
+  --card-foreground: #e2dfff;
+  --popover: #1d1d34;
+  --popover-foreground: #e2dfff;
+  --secondary: #5fd4ff;
+  --secondary-foreground: #003545;
+  --muted: #33324b;
+  --muted-foreground: #c3c6cf;
+  --accent: #8fcdff;
+  --accent-foreground: #001e30;
+  --destructive: #ffb4ab;
+  --destructive-foreground: #690005;
+  --border: #42474e;
+  --input: #262626;
+  --ring: #5fd4ff;
+  --sidebar: #1d1d34;
+  --sidebar-foreground: #e2dfff;
+  --sidebar-accent: #5fd4ff;
+  --sidebar-accent-foreground: #001d36;
+  --sidebar-border: #42474e;
+  --sidebar-ring: #5fd4ff;
 }
 
 .dark {
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-blue-50);
-  --sidebar-primary: var(--color-blue-500);
-  --sidebar-primary-foreground: var(--color-blue-50);
-  --background: oklch(0.141 0.005 285.823);
-  --foreground: oklch(0.85 0.005 65);
-  --card: oklch(0.21 0.006 285.885);
-  --card-foreground: oklch(0.85 0.005 65);
-  --popover: oklch(0.21 0.006 285.885);
-  --popover-foreground: oklch(0.85 0.005 65);
-  --secondary: oklch(0.24 0.006 286.033);
-  --secondary-foreground: oklch(0.7 0.005 65);
-  --muted: oklch(0.274 0.006 286.033);
-  --muted-foreground: oklch(0.705 0.015 286.067);
-  --accent: oklch(0.274 0.006 286.033);
-  --accent-foreground:  oklch(0.92 0.005 65);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.488 0.243 264.376);
-  --chart-1: var(--color-blue-300);
-  --chart-2: var(--color-blue-500);
-  --chart-3: var(--color-blue-600);
-  --chart-4: var(--color-blue-700);
-  --chart-5: var(--color-blue-800);
-  --sidebar: oklch(0.21 0.006 285.885);
-  --sidebar-foreground: oklch(0.85 0.005 65);
-  --sidebar-accent: oklch(0.274 0.006 286.033);
-  --sidebar-accent-foreground:  oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.488 0.243 264.376);
+  --primary: #a5c9f8;
+  --primary-foreground: #003259;
+  --sidebar-primary: #5fd4ff;
+  --sidebar-primary-foreground: #001d36;
+  --background: #111127;
+  --foreground: #e2dfff;
+  --card: #1d1d34;
+  --card-foreground: #e2dfff;
+  --popover: #1d1d34;
+  --popover-foreground: #e2dfff;
+  --secondary: #5fd4ff;
+  --secondary-foreground: #003545;
+  --muted: #33324b;
+  --muted-foreground: #c3c6cf;
+  --accent: #8fcdff;
+  --accent-foreground: #001e30;
+  --destructive: #ffb4ab;
+  --destructive-foreground: #690005;
+  --border: #42474e;
+  --input: #262626;
+  --ring: #5fd4ff;
+  --chart-1: #5fd4ff;
+  --chart-2: #8fcdff;
+  --chart-3: #a5c9f8;
+  --chart-4: #3bb4ff;
+  --chart-5: #14a1eb;
+  --sidebar: #1d1d34;
+  --sidebar-foreground: #e2dfff;
+  --sidebar-accent: #5fd4ff;
+  --sidebar-accent-foreground: #001d36;
+  --sidebar-border: #42474e;
+  --sidebar-ring: #5fd4ff;
 }
 
 @layer base {
@@ -158,6 +162,35 @@
   .flex {
     min-height: 0;
     min-width: 0;
+  }
+
+  /* Mission Brasil Custom Styles */
+  .constellation-bg {
+    background-image: radial-gradient(circle at 2px 2px, rgba(95, 212, 255, 0.05) 1px, transparent 0);
+    background-size: 40px 40px;
+  }
+
+  .glow-button {
+    transition: all 0.3s ease;
+  }
+
+  .glow-button:hover {
+    box-shadow: 0 0 20px rgba(95, 212, 255, 0.6);
+    transform: translateY(-2px);
+  }
+
+  .glass-panel {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .rocket-launch {
+    animation: rocket-float 6s ease-in-out infinite;
+  }
+
+  @keyframes rocket-float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(2deg); }
   }
 
   @media (min-width: 640px) {
