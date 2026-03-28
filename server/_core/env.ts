@@ -29,4 +29,9 @@ export const ENV = {
   forgeApiKey: process.env.BUILT_IN_FORGE_API_KEY ?? "",
   adminEmail: process.env.ADMIN_EMAIL ?? "",
   marketingEmail: process.env.MARKETING_EMAIL ?? "",
+  emailHost: process.env.EMAIL_HOST ?? "smtp.gmail.com",
+  emailPort: parseInt(process.env.EMAIL_PORT ?? "587"),
+  emailSecure: process.env.EMAIL_SECURE === "true",
+  emailUser: process.env.EMAIL_USER ?? "",
+  emailPassword: process.env.EMAIL_PASSWORD ?? "",
 };

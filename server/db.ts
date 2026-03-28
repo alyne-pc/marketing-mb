@@ -400,3 +400,53 @@ export async function updateInventoryCost(size: string, costPerUnit: string) {
     .set({ costPerUnit })
     .where(eq(inventory.size, size as any));
 }
+
+
+export async function getUserByEmail(email: string) {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot get user: database not available");
+    return undefined;
+  }
+
+  const result = await db.select().from(users).where(eq(users.email as any, email)).limit(1);
+
+  return result.length > 0 ? result[0] : undefined;
+}
+
+export async function createUser(data: InsertUser) {
+  const db = await getDb();
+  if (!db) {
+    throw new Error("Database not available");
+  }
+
+  await db.insert(users).values(data);
+  
+  const result = await db.select().from(users).where(eq(users.email as any, data.email)).limit(1);
+  return result.length > 0 ? result[0] : undefined;
+}
+
+export async function updateUserLastSignedIn(userId: number) {
+  const db = await getDb();
+  if (!db) {
+    throw new Error("Database not available");
+  }
+
+  await db
+    .update(users)
+    .set({ lastSignedIn: new Date() })
+    .where(eq(users.id, userId));
+}
+
+
+export async function getUserById(userId: number) {
+  const db = await getDb();
+  if (!db) {
+    console.warn("[Database] Cannot get user: database not available");
+    return undefined;
+  }
+
+  const result = await db.select().from(users).where(eq(users.id, userId)).limit(1);
+
+  return result.length > 0 ? result[0] : undefined;
+}
