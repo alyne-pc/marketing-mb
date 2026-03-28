@@ -1,3 +1,23 @@
+function validateEnv() {
+  const required = [
+    'VITE_APP_ID',
+    'JWT_SECRET',
+    'DATABASE_URL',
+    'OAUTH_SERVER_URL',
+    'OWNER_OPEN_ID',
+    'BUILT_IN_FORGE_API_URL',
+    'BUILT_IN_FORGE_API_KEY',
+  ];
+
+  const missing = required.filter(key => !process.env[key]);
+  if (missing.length > 0) {
+    console.error('[ENV] Missing required environment variables:', missing);
+    console.error('[ENV] Available env vars:', Object.keys(process.env).filter(k => k.startsWith('VITE_') || k.startsWith('OAUTH_') || k.startsWith('JWT_') || k.startsWith('DATABASE_') || k.startsWith('OWNER_') || k.startsWith('BUILT_IN_')));
+  }
+}
+
+validateEnv();
+
 export const ENV = {
   appId: process.env.VITE_APP_ID ?? "",
   cookieSecret: process.env.JWT_SECRET ?? "",
